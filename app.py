@@ -32,6 +32,12 @@ def docker_stop():
     os.system("docker stop {}".format(container))
     return status(container)
 
+@app.route('/docker/api/transfer')
+def docker_stop():
+    container = request.args.get('name')
+    os.system("docker cp {}:{} {}".format(container,))
+    return status(container)
+
 if __name__ == '__main__':
     os.system("""figlet -f starwars "Valhalla" """)
     app.run(debug=True)
